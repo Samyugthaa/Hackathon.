@@ -1,3 +1,4 @@
+import os
 import cv2
 import sqlite3
 import numpy as np
@@ -137,4 +138,5 @@ def home():
 # Initialize database and run Flask app
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True)
+    # Use the correct port for deployment
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
